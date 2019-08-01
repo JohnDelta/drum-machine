@@ -1,24 +1,17 @@
 import React from 'react';
+import Options from './Options.js';
+import Display from './Display.js';
+import Drumpad from './Drumpad.js';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Options />
+			<Display />
+			<Drumpad />
+		</div>
+	);
 }
 
 export default App;
