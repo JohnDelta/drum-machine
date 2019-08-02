@@ -8,7 +8,27 @@ class Options extends React.Component {
 	render() {
 		return(
 			<div className="Options">
-				options
+			
+				<div className="onoff">
+					<i className="fa fa-power-off font-button"></i>
+				</div>
+				
+				<div className="edit">
+					<i className="fa fa-cog font-button"></i>
+				</div>
+				
+				<div className="volume">
+					<input
+						className="volume-slider"
+						type="range"
+						min="1" 
+						max="100" 
+						
+						id="volume"
+					/>
+				</div>
+				
+				
 			</div>
 		);
 	}

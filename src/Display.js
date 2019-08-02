@@ -7,9 +7,11 @@ class Display extends React.Component {
 	
 	render() {
 		return(
-			<div className="Display">
-				display
-			</div>
+			<div 
+				className="Display" 
+				id="display"
+				dangerouslySetInnerHTML={{__html:"hello"}}
+			/>
 		);
 	}
 }

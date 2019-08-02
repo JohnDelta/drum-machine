@@ -9,7 +9,7 @@ class Drumpad extends React.Component {
 	render() {
 		
 		let pads = [];
-		for(var i = 0; i <= 9; i++) {
+		for(var i = 0; i < 9; i++) {
 			pads.push(<Pad value={i} />);
 		}
 		
