@@ -19,6 +19,14 @@ class Drumpad extends React.Component {
 		});
 	}
 	
+	componentDidUpdate() {
+		if(this.state.volume !== this.props.volume) {
+			this.setState({
+				volume : this.props.volume
+			});
+		}
+	}
+	
 	handleClick(e) {
 		let padToSound = this.state.padToSounds
 				.filter((item) => item.keyTrigger === e.target.id)[0];

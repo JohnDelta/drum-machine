@@ -8,7 +8,7 @@ class Options extends React.Component {
 			soundEffects  :[],
 			volume : 0
 		};
-		this.handleChange = this.handleChange.bind(this);
+		this.handleChangeVolume = this.handleChangeVolume.bind(this);
 	}
 	
 	componentWillMount() {
@@ -24,11 +24,16 @@ class Options extends React.Component {
 		volumeSlider.value = this.state.volume;
 	}
 	
-	handleChange(e) {
+	componentDidUpdate() {
+		if(this.state.volume !== this.props.volume) {
+			this.props.updateVolume(this.state.volume);
+		}
+	}
+	
+	handleChangeVolume(e) {
 		this.setState({
 			volume : e.target.value
 		});
-		this.props.updateVolume(this.state.volume);
 	}
 	
 	render() {
@@ -50,7 +55,7 @@ class Options extends React.Component {
 						min="1" 
 						max="100" 
 						id="volume"
-						onChange={this.handleChange}
+						onChange={this.handleChangeVolume}
 					/>
 				</div>
 				
