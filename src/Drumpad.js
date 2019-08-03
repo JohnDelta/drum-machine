@@ -50,6 +50,8 @@ class Drumpad extends React.Component {
 		let audio = new Audio(soundEffect.url);
 		audio.volume = this.state.volume * 1/100;
 		audio.play();
+		
+		this.props.updateDisplay(soundEffect.idSound);
 	}
 	
 	render() {

@@ -9,6 +9,7 @@ class Options extends React.Component {
 			volume : 0
 		};
 		this.handleChangeVolume = this.handleChangeVolume.bind(this);
+		this.handleClickEdit = this.handleClickEdit.bind(this);
 	}
 	
 	componentWillMount() {
@@ -36,6 +37,10 @@ class Options extends React.Component {
 		});
 	}
 	
+	handleClickEdit() {
+		this.props.toggleEdit();
+	}
+	
 	render() {
 		return(
 			<div className="Options">
@@ -44,7 +49,10 @@ class Options extends React.Component {
 					<i className="fa fa-power-off font-button"></i>
 				</div>
 				
-				<div className="edit">
+				<div 
+					className="edit"
+					onClick={this.handleClickEdit}
+					>
 					<i className="fa fa-cog font-button"></i>
 				</div>
 				
