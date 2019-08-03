@@ -9,6 +9,7 @@ class Drumpad extends React.Component {
 			volume : 0
 		};
 		this.handleClick = this.handleClick.bind(this);
+		this.playSound = this.playSound.bind(this);
 	}
 	
 	componentWillMount() {
@@ -16,6 +17,16 @@ class Drumpad extends React.Component {
 			padToSounds : this.props.padToSounds,
 			soundEffects : this.props.soundEffects,
 			volume : this.props.volume
+		});
+	}
+	
+	componentDidMount() {
+		document.addEventListener("keydown",(event) => {
+			this.state.padToSounds.forEach((item,index) => {
+				if(item.keyCode === event.keyCode) {
+					this.playSound(item.keyTrigger);
+				}
+			});
 		});
 	}
 	
@@ -28,8 +39,12 @@ class Drumpad extends React.Component {
 	}
 	
 	handleClick(e) {
+		this.playSound(e.target.id);
+	}
+	
+	playSound(idPadToSound) {
 		let padToSound = this.state.padToSounds
-				.filter((item) => item.keyTrigger === e.target.id)[0];
+				.filter((item) => item.keyTrigger === idPadToSound)[0];
 		let soundEffect = this.state.soundEffects
 				.filter((item) => padToSound.idSound === item.idSound)[0];
 		let audio = new Audio(soundEffect.url);
