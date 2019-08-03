@@ -5,7 +5,8 @@ class Drumpad extends React.Component {
 		super(props);
 		this.state = {
 			padToSounds : [],
-			soundEffects : []
+			soundEffects : [],
+			volume : 0
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -13,7 +14,8 @@ class Drumpad extends React.Component {
 	componentWillMount() {
 		this.setState({
 			padToSounds : this.props.padToSounds,
-			soundEffects : this.props.soundEffects
+			soundEffects : this.props.soundEffects,
+			volume : this.props.volume
 		});
 	}
 	
@@ -23,6 +25,7 @@ class Drumpad extends React.Component {
 		let soundEffect = this.state.soundEffects
 				.filter((item) => padToSound.idSound === item.idSound)[0];
 		let audio = new Audio(soundEffect.url);
+		audio.volume = this.state.volume * 1/100;
 		audio.play();
 	}
 	

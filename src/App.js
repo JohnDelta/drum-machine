@@ -11,10 +11,12 @@ class App extends React.Component {
 		super();
 		this.state = {
 			power : false,
+			volume : 45,
 			padToSounds : getDefaultPadToSounds(),
 			soundEffects : getDefaultSoundEffects()
 		};
 		this.togglePower = this.togglePower.bind(this);
+		this.updateVolume = this.updateVolume.bind(this);
 	}
 	
 	togglePower() {
@@ -28,18 +30,27 @@ class App extends React.Component {
 		});
 	}
 	
+	updateVolume(v) {
+		this.setState({
+			volume : v
+		});
+	}
+	
 	render() {
 		return (
 			<div className="App">
 				<Options 
+					volume={this.state.volume}
 					padToSounds={this.state.padToSounds}
 					soundEffects={this.state.soundEffects}
+					updateVolume={this.updateVolume}
 				/>
 				<Display
 					padToSounds={this.state.padToSounds}
 					soundEffects={this.state.soundEffects}
 				/>
 				<Drumpad
+					volume={this.state.volume}
 					soundEffects={this.state.soundEffects}
 					padToSounds={this.state.padToSounds} 
 				/>
