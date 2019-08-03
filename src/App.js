@@ -3,16 +3,16 @@ import Options from './Options.js';
 import Display from './Display.js';
 import Drumpad from './Drumpad.js';
 import './App.css';
-import getDefaultPadToSound from './getDefaultPadToSound.js';
-import getDefaultSounds from './getDefaultSounds.js';
+import getDefaultPadToSounds from './getDefaultPadToSounds.js';
+import getDefaultSoundEffects from './getDefaultSoundEffects.js';
 
 class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			power : false,
-			padToSound : getDefaultPadToSound(),
-			sounds : getDefaultSounds()
+			padToSounds : getDefaultPadToSounds(),
+			soundEffects : getDefaultSoundEffects()
 		};
 		this.togglePower = this.togglePower.bind(this);
 	}
@@ -32,16 +32,16 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<Options 
-					padToSound={this.state.padToSound}
-					sounds={this.state.sounds}
+					padToSounds={this.state.padToSounds}
+					soundEffects={this.state.soundEffects}
 				/>
 				<Display
-					padToSound={this.state.padToSound}
-					sounds={this.state.sounds}
+					padToSounds={this.state.padToSounds}
+					soundEffects={this.state.soundEffects}
 				/>
 				<Drumpad
-					sounds={this.state.sounds}
-					padToSound={this.state.padToSound} 
+					soundEffects={this.state.soundEffects}
+					padToSounds={this.state.padToSounds} 
 				/>
 			</div>
 		);
