@@ -11,7 +11,7 @@ class App extends React.Component {
 		super();
 		this.state = {
 			// Power button of the device
-			power : false,
+			power : true,
 			// Sound volume
 			volume : 10,
 			// The message which the display will show

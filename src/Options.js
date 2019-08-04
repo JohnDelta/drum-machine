@@ -4,8 +4,6 @@ class Options extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			padToSounds : [],
-			soundEffects  :[],
 			volume : 0,
 			power : false
 		};
@@ -16,8 +14,6 @@ class Options extends React.Component {
 	
 	componentWillMount() {
 		this.setState({
-			padToSounds : this.props.padToSounds,
-			soundEffects : this.props.soundEffects,
 			volume : this.props.volume,
 			power : this.props.power
 		});
@@ -31,11 +27,6 @@ class Options extends React.Component {
 	componentDidUpdate() {
 		if(this.state.volume !== this.props.volume) {
 			this.props.updateVolume(this.state.volume);
-		}
-		if(this.state.power !== this.props.power) {
-			this.setState({
-				power : this.props.power
-			});
 		}
 	}
 	
@@ -58,7 +49,7 @@ class Options extends React.Component {
 		let powerStyle = {};
 		let powerSliderClass = "volume-slider ";
 		let disabled = "";
-		if(!this.state.power) {
+		if(!this.props.power) {
 			powerStyle = {
 				color : "#7a2100",
 				pointerEvents : "none",
