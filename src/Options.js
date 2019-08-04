@@ -6,17 +6,20 @@ class Options extends React.Component {
 		this.state = {
 			padToSounds : [],
 			soundEffects  :[],
-			volume : 0
+			volume : 0,
+			power : false
 		};
 		this.handleChangeVolume = this.handleChangeVolume.bind(this);
 		this.handleClickEdit = this.handleClickEdit.bind(this);
+		this.handleClickPower = this.handleClickPower.bind(this);
 	}
 	
 	componentWillMount() {
 		this.setState({
 			padToSounds : this.props.padToSounds,
 			soundEffects : this.props.soundEffects,
-			volume : this.props.volume
+			volume : this.props.volume,
+			power : this.props.power
 		});
 	}
 	
@@ -28,6 +31,11 @@ class Options extends React.Component {
 	componentDidUpdate() {
 		if(this.state.volume !== this.props.volume) {
 			this.props.updateVolume(this.state.volume);
+		}
+		if(this.state.power !== this.props.power) {
+			this.setState({
+				power : this.props.power
+			});
 		}
 	}
 	
@@ -41,33 +49,60 @@ class Options extends React.Component {
 		this.props.toggleEdit();
 	}
 	
+	handleClickPower() {
+		this.props.togglePower();
+	}
+	
 	render() {
+		/*Create the power off style*/
+		let powerStyle = {};
+		let powerSliderClass = "volume-slider ";
+		let disabled = "";
+		if(!this.state.power) {
+			powerStyle = {
+				color : "#7a2100",
+				pointerEvents : "none",
+				borderColor : "#7a2100"
+			};
+			disabled="disabled";
+			powerSliderClass += "volume-slider-off";
+		}
+		
 		return(
 			<div className="Options">
-			
-				<div className="onoff">
-					<i className="fa fa-power-off font-button"></i>
+				<div 
+					className="onoff"
+					onClick={this.handleClickPower}
+					>
+					<i
+						className="fa fa-power-off font-button"
+					/>
 				</div>
 				
 				<div 
 					className="edit"
 					onClick={this.handleClickEdit}
+					disabled={disabled}
+					style={powerStyle}
 					>
-					<i className="fa fa-cog font-button"></i>
+					<i 
+						className="fa fa-cog font-button"
+						style={powerStyle}
+					/>
 				</div>
 				
 				<div className="volume">
 					<input
-						className="volume-slider"
+						className={powerSliderClass}
+						style={powerStyle}
 						type="range"
 						min="1" 
 						max="100" 
 						id="volume"
 						onChange={this.handleChangeVolume}
+						disabled={disabled}
 					/>
 				</div>
-				
-				
 			</div>
 		);
 	}

@@ -70,19 +70,23 @@ class App extends React.Component {
 			<div className="App">
 				<Options 
 					volume={this.state.volume}
+					power={this.state.power}
 					padToSounds={this.state.padToSounds}
 					soundEffects={this.state.soundEffects}
 					updateVolume={this.updateVolume}
 					updateDisplay={this.updateDisplay}
 					toggleEdit={this.toggleEdit}
+					togglePower={this.togglePower}
 				/>
 				<Display
+					power={this.state.power}
 					edit={this.state.edit}
 					display={this.state.display}
 					padToSounds={this.state.padToSounds}
 					soundEffects={this.state.soundEffects}
 				/>
 				<Drumpad
+					power={this.state.power}
 					volume={this.state.volume}
 					soundEffects={this.state.soundEffects}
 					padToSounds={this.state.padToSounds}

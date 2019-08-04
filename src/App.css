@@ -94,6 +94,14 @@
 	cursor: pointer;
 }
 
+.volume-slider-off::-webkit-slider-thumb {
+	background : #7a2100;
+}
+
+.volume-slider-off::-moz-range-thumb {
+	background : #7a2100;
+}
+
 .Display {
 	margin-top : 5px;
 	background : #ff9c78;

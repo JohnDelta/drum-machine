@@ -6,7 +6,8 @@ class Drumpad extends React.Component {
 		this.state = {
 			padToSounds : [],
 			soundEffects : [],
-			volume : 0
+			volume : 0,
+			power : false
 		};
 		this.handleClick = this.handleClick.bind(this);
 		this.playSound = this.playSound.bind(this);
@@ -16,7 +17,8 @@ class Drumpad extends React.Component {
 		this.setState({
 			padToSounds : this.props.padToSounds,
 			soundEffects : this.props.soundEffects,
-			volume : this.props.volume
+			volume : this.props.volume,
+			power : this.props.power
 		});
 	}
 	
@@ -36,6 +38,11 @@ class Drumpad extends React.Component {
 				volume : this.props.volume
 			});
 		}
+		if(this.state.power !== this.props.power) {
+			this.setState({
+				power : this.props.power
+			});
+		}
 	}
 	
 	handleClick(e) {
@@ -49,12 +56,22 @@ class Drumpad extends React.Component {
 				.filter((item) => padToSound.idSound === item.idSound)[0];
 		let audio = new Audio(soundEffect.url);
 		audio.volume = this.state.volume * 1/100;
-		audio.play();
-		
-		this.props.updateDisplay(soundEffect.idSound);
+		if(this.state.power) {
+			audio.play();
+			this.props.updateDisplay(soundEffect.idSound);
+		}
 	}
 	
 	render() {
+		/*Create the power off style*/
+		let powerStyle = {};
+		if(!this.state.power) {
+			powerStyle = {
+				color : "#7a2100",
+				pointerEvents : "none"
+			};
+		}
+		
 		let pads = []; 
 		this.props.padToSounds.forEach((padToSound,index) => {
 			pads.push(
@@ -64,6 +81,7 @@ class Drumpad extends React.Component {
 					id={padToSound.keyTrigger} 
 					dangerouslySetInnerHTML={{__html : padToSound.keyTrigger}}
 					onClick={this.handleClick}
+					style={powerStyle}
 				/>
 			);
 		});
