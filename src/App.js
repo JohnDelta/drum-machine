@@ -13,7 +13,7 @@ class App extends React.Component {
 			// Power button of the device
 			power : false,
 			// Sound volume
-			volume : 20,
+			volume : 10,
 			// The message which the display will show
 			display : "",
 			// If it's true, the display will show the settings

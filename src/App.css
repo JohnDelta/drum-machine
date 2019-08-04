@@ -107,15 +107,49 @@
 
 .display-text {
 	font-family: 'Darker Grotesque', sans-serif;
-	font-size : 1.5em;
-	transition-duration : .4s;
+	font-size : 1.8em;
+}
+
+.textFadeAway-animation {
+	-webkit-animation : textFadeAway 1s ease-in forwards;
+	-moz-animation : textFadeAway 1s ease-in forwards;
+	-o-animation : textFadeAway 1s ease-in forwards;
+	animation : textFadeAway 1s ease-in forwards;
+}
+
+@-webkit-keyframes textFadeAway {
+	from {
+		opacity : 1;
+	}
+	to {
+		opacity : 0;
+	}
+}
+
+@-moz-keyframes textFadeAway {
+	from {
+		opacity : 1;
+	}
+	to {
+		opacity : 0;
+	}
+} 
+
+@-o-keyframes textFadeAway {
+	from {
+		opacity : 1;
+	}
+	to {
+		opacity : 0;
+	}
 }
 
 @keyframes textFadeAway {
 	from {
-		.display-text {
-			
-		}
+		opacity : 1;
+	}
+	to {
+		opacity : 0;
 	}
 }
 
