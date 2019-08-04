@@ -38,6 +38,11 @@ class App extends React.Component {
 		this.setState({
 			power : res
 		});
+		if(!this.state.power) {
+			this.setState({
+				display : ""
+			});
+		}
 	}
 	
 	updateDisplay(d) {

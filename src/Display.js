@@ -5,18 +5,25 @@ class Display extends React.Component {
 		super(props);
 		this.state = {
 			edit : true,
-			display : ""
+			display : "",
+			power : false
 		};
 	}
 	
 	componentWillMount() {
 		this.setState({
 			display : this.props.display,
-			edit : this.props.edit
+			edit : this.props.edit,
+			power : this.props.power
 		});
 	}
 	
 	componentDidUpdate() {
+		if(this.state.power !== this.props.power) {
+			this.setState({
+				power : this.props.power
+			});
+		}
 		if(this.state.edit !== this.props.edit) {
 			this.setState({
 				edit : this.props.edit
@@ -35,7 +42,6 @@ class Display extends React.Component {
 		}		
 	
 		if(this.state.display !== this.props.display) {
-			
 			this.setState({
 				display : this.props.display
 			});
@@ -50,15 +56,27 @@ class Display extends React.Component {
 			text.classList.add("textFadeAway-animation");
 			display.appendChild(text);
 		}
+		
+		if(!this.state.power) {
+			document.querySelector(".display-text").innerHTML = "";
+		}
 	}
 	
 	render() {
+		/*Create the power off style*/
+		let powerStyle = {};
+		if(!this.state.power) {
+			powerStyle = {
+				backgroundColor : "#7a2100"
+			};
+		}
 		
 		if(!this.state.edit) {
 			return(
 				<div 
 					className="Display" 
 					id="display"
+					style={powerStyle}
 				/>
 			);
 		} else {
@@ -66,6 +84,7 @@ class Display extends React.Component {
 				<div 
 					className="DisplayEdit" 
 					id="display"
+					style={powerStyle}
 				>
 				</div>
 			);
