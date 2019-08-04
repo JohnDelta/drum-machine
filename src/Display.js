@@ -1,4 +1,5 @@
 import React from 'react';
+import EditWindow from './EditWindow.js';
 
 class Display extends React.Component {
 	constructor(props) {
@@ -54,11 +55,11 @@ class Display extends React.Component {
 			
 			return (
 				<div 
-					className="DisplayEdit" 
+					className="Display" 
 					id="display"
 					style={powerStyle}
 				>
-				
+					<EditWindow />
 				</div>
 			);
 		}
