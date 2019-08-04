@@ -35,16 +35,23 @@ class Display extends React.Component {
 				<div 
 					className="Display" 
 					id="display"
-					dangerouslySetInnerHTML={{__html:this.state.display}}
-				/>
+				>
+					<div 
+						className="display-text"
+						dangerouslySetInnerHTML={{__html:this.state.display}}
+					/>
+				</div>
 			);
 		} else {
 			return (
 				<div 
-					className="Display" 
+					className="DisplayEdit" 
 					id="display"
-					dangerouslySetInnerHTML={{__html:"edit!"}}
-				/>
+				>
+				
+					
+				
+				</div>
 			);
 		}
 	}
