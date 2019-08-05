@@ -23,6 +23,7 @@ class EditWindow extends React.Component {
 					<div className="pad-to-sound">
 						<p>{padItem.keyTrigger}</p>
 						<select>{sounds}</select>
+						<i className="fa fa-save" />
 					</div>
 				);
 			});
