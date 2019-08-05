@@ -27,6 +27,7 @@ class App extends React.Component {
 		this.updateVolume = this.updateVolume.bind(this);
 		this.updateDisplay = this.updateDisplay.bind(this);
 		this.toggleEdit = this.toggleEdit.bind(this);
+		this.updatePadToSounds = this.updatePadToSounds.bind(this);
 	}
 	
 	togglePower() {
@@ -72,6 +73,14 @@ class App extends React.Component {
 		});
 	}
 	
+	updatePadToSounds(index,idSound) {
+		let cp = this.state.padToSounds;
+		cp[index].idSound = idSound;
+		this.setState({
+			padToSounds : cp
+		});
+	}
+	
 	render() {
 		return (
 			<div className="App">
@@ -91,6 +100,7 @@ class App extends React.Component {
 					display={this.state.display}
 					padToSounds={this.state.padToSounds}
 					soundEffects={this.state.soundEffects}
+					updatePadToSounds={this.updatePadToSounds}
 				/>
 				<Drumpad
 					power={this.state.power}

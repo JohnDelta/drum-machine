@@ -67,6 +67,7 @@ class Display extends React.Component {
 						power={this.props.power}
 						soundEffects={this.props.soundEffects}
 						padToSounds={this.props.padToSounds}
+						updatePadToSounds={this.props.updatePadToSounds}
 					/>
 				</div>
 			);
