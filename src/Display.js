@@ -4,6 +4,7 @@ import EditWindow from './EditWindow.js';
 class Display extends React.Component {
 	constructor(props) {
 		super(props);
+		this.clearDisplay = this.clearDisplay.bind(this);
 	}
 	
 	componentDidUpdate() {
@@ -13,20 +14,27 @@ class Display extends React.Component {
 			and append it again.
 		*/
 		if(!this.props.edit) { 
-			let display = document.querySelector(".Display");
-			if(display.contains(document.querySelector(".display-text"))) {
-				display.removeChild(document.querySelector(".display-text"));
-			}
+			this.clearDisplay();
 			/*Insert child again here*/
+			let display = document.querySelector(".Display");
 			let text = document.createElement("div");
 			text.innerHTML = this.props.display;
 			text.classList.add("display-text");
 			text.classList.add("textFadeAway-animation");
 			display.appendChild(text);
+		} else {
+			this.clearDisplay();
 		}
 		
 		if(!this.props.power) {
-			document.querySelector(".display-text").innerHTML = "";
+			this.clearDisplay();
+		}
+	}
+	
+	clearDisplay() {
+		let x = document.querySelector(".display-text");
+		if(document.querySelector(".Display").contains(x)) {
+			x.parentNode.removeChild(x);
 		}
 	}
 	
@@ -53,9 +61,9 @@ class Display extends React.Component {
 					className="Display" 
 					id="display"
 					style={powerStyle}
-					style={{borderRightTopRadius:0}}
 				>
 					<EditWindow
+						edit={this.props.edit}
 						power={this.props.power}
 						soundEffects={this.props.soundEffects}
 						padToSounds={this.props.padToSounds}

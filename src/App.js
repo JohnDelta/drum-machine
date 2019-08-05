@@ -52,7 +52,6 @@ class App extends React.Component {
 	}
 	
 	updateVolume(v) {
-		//And update display simutaneously while you are here...
 		this.setState({
 			volume : v,
 			display : "Volume : "+v
@@ -68,11 +67,9 @@ class App extends React.Component {
 		this.setState({
 			edit : res
 		});
-		if(!this.state.edit) {
-			this.setState({
-				display : ""
-			});
-		}
+		this.setState({
+			display : ""
+		});
 	}
 	
 	render() {

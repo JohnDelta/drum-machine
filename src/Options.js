@@ -4,8 +4,7 @@ class Options extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			volume : 0,
-			power : false
+			volume : 0
 		};
 		this.handleChangeVolume = this.handleChangeVolume.bind(this);
 		this.handleClickEdit = this.handleClickEdit.bind(this);
@@ -14,8 +13,7 @@ class Options extends React.Component {
 	
 	componentWillMount() {
 		this.setState({
-			volume : this.props.volume,
-			power : this.props.power
+			volume : this.props.volume
 		});
 	}
 	

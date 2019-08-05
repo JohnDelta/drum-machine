@@ -197,7 +197,7 @@
 .pad-to-sound {
 	display : flex;
 	flex-direction : row;
-	justify-content : space-around;
+	justify-content : space-between;
 	align-items : center;
 	font-family: 'Darker Grotesque', sans-serif;
 	font-size : 18px;
@@ -209,11 +209,16 @@
 }
 
 .pad-to-sound select {
+	margin-right : 25%;
 	min-width : 100px;
 	background-color : #ff9c78;
 	border : 2px solid #ff4400;
 	font-family: 'Darker Grotesque', sans-serif;
 	font-size : 18px;
+}
+
+.pad-to-sound p {
+	margin-left : 25%;
 }
 
 

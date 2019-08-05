@@ -15,7 +15,7 @@ class EditWindow extends React.Component {
 			
 		*/
 		let data = [];
-		if(this.props.power) {
+		if(this.props.power && this.props.edit) {
 			this.props.padToSounds.forEach((padItem,index) => {
 				let sounds = this.props.soundEffects
 					.map(item => <option>{item.idSound}</option>);
