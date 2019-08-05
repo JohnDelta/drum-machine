@@ -3,6 +3,11 @@ import React from 'react';
 class EditWindow extends React.Component {
 	constructor(props) {
 		super(props);
+		this.handleClickSave = this.handleClickSave.bind(this);
+	}
+	
+	handleClickSave(e) {
+		console.log(e);
 	}
 	
 	render() {
@@ -17,13 +22,27 @@ class EditWindow extends React.Component {
 		let data = [];
 		if(this.props.power && this.props.edit) {
 			this.props.padToSounds.forEach((padItem,index) => {
+				let defaultSound = this.props.soundEffects
+					.filter(soundItem => soundItem.idSound === padItem.idSound);
 				let sounds = this.props.soundEffects
-					.map(item => <option>{item.idSound}</option>);
+					.map(soundItem => 
+						<option
+							value={soundItem.idSound}
+							>{soundItem.idSound}
+						</option>);
 				data.push(
-					<div className="pad-to-sound">
+					<div className="pad-to-sound" key={index}>
 						<p>{padItem.keyTrigger}</p>
-						<select>{sounds}</select>
-						<i className="fa fa-save" />
+						<select
+							name={padItem.keyTrigger}
+							value={defaultSound.idSound}
+							title="select new sound for this pad"
+						>{sounds}</select>
+						<i 
+							className="fa fa-save" 
+							title="save change"
+							onClick={this.handleClickSave}
+						/>
 					</div>
 				);
 			});

@@ -54,6 +54,7 @@ class Drumpad extends React.Component {
 					dangerouslySetInnerHTML={{__html : padToSound.keyTrigger}}
 					onClick={this.handleClick}
 					style={powerStyle}
+					title={"Play sound : "+padToSound.idSound}
 				/>
 			);
 		});

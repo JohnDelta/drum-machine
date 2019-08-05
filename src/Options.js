@@ -65,6 +65,7 @@ class Options extends React.Component {
 					>
 					<i
 						className="fa fa-power-off font-button"
+						title="turn on/off button"
 					/>
 				</div>
 				
@@ -77,6 +78,7 @@ class Options extends React.Component {
 					<i 
 						className="fa fa-cog font-button"
 						style={powerStyle}
+						title="go to sound-pad edit mode"
 					/>
 				</div>
 				
