@@ -23,7 +23,7 @@ class Display extends React.Component {
 			text.classList.add("display-text");
 			text.classList.add("textFadeAway-animation");
 			display.appendChild(text);
-		}		
+		}
 		
 		if(!this.props.power) {
 			document.querySelector(".display-text").innerHTML = "";
@@ -48,14 +48,18 @@ class Display extends React.Component {
 				/>
 			);
 		} else {
-			
 			return (
 				<div 
 					className="Display" 
 					id="display"
 					style={powerStyle}
+					style={{borderRightTopRadius:0}}
 				>
-					<EditWindow />
+					<EditWindow
+						power={this.props.power}
+						soundEffects={this.props.soundEffects}
+						padToSounds={this.props.padToSounds}
+					/>
 				</div>
 			);
 		}

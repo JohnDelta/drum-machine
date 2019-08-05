@@ -17,7 +17,7 @@ class App extends React.Component {
 			// The message which the display will show
 			display : "",
 			// If it's true, the display will show the settings
-			edit : false,
+			edit : true,
 			// JSON which contains the keyId,soundId and keyCode to initialize pad
 			padToSounds : getDefaultPadToSounds(),
 			// JSON which contains the soundId,url to play the sound
@@ -68,6 +68,11 @@ class App extends React.Component {
 		this.setState({
 			edit : res
 		});
+		if(!this.state.edit) {
+			this.setState({
+				display : ""
+			});
+		}
 	}
 	
 	render() {

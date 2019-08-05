@@ -107,7 +107,6 @@
 	background : #ff9c78;
 	height : 35%;
 	border : 4px solid #363636;
-	border-radius : 10px;
 	display : flex;
 	justify-content : center;
 	align-items : center;
@@ -183,3 +182,41 @@
 	color : #ff4400;
 	outline : none;
 }
+
+.EditWindow {
+	background-color : transparent;
+	width : 100%;
+	height : 100%;
+	border-radius : 10px;
+	overflow-y : scroll;
+	overflow-x : hidden;
+	display : flex;
+	flex-direction : column;
+}
+
+.pad-to-sound {
+	display : flex;
+	flex-direction : row;
+	justify-content : space-around;
+	align-items : center;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-size : 18px;
+	padding :  4px 0px;
+}
+
+.pad-to-sound:nth-child(odd) {
+	background-color : #ffbc9b;
+}
+
+.pad-to-sound select {
+	min-width : 100px;
+	background-color : #ff9c78;
+	border : 2px solid #ff4400;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-size : 18px;
+}
+
+
+
+
+
