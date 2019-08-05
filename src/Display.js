@@ -17,17 +17,13 @@ class Display extends React.Component {
 			if(display.contains(document.querySelector(".display-text"))) {
 				display.removeChild(document.querySelector(".display-text"));
 			}
-		}		
-		
-		/*Insert child again here*/
-		if(!this.props.edit) {
-			let display = document.querySelector(".Display");
+			/*Insert child again here*/
 			let text = document.createElement("div");
 			text.innerHTML = this.props.display;
 			text.classList.add("display-text");
 			text.classList.add("textFadeAway-animation");
 			display.appendChild(text);
-		}
+		}		
 		
 		if(!this.props.power) {
 			document.querySelector(".display-text").innerHTML = "";
