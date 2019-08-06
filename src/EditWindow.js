@@ -16,7 +16,7 @@ class EditWindow extends React.Component {
 		});
 	}
 	
-	handleClickSave(e) {console.log("save");
+	handleClickSave(e) {
 		let padIndex = e.target.id;
 		let pad = this.state.padToSounds[padIndex];
 		this.props.updatePadToSounds(padIndex,pad.idSound);

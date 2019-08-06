@@ -11,15 +11,15 @@ class App extends React.Component {
 		super();
 		this.state = {
 			// Power button of the device
-			power : true,
+			power : false,
 			// Sound volume
 			volume : 10,
 			// The message which the display will show
 			display : "",
 			// If it's true, the display will show the settings
-			edit : true,
+			edit : false,
 			// JSON which contains the keyId,soundId and keyCode to initialize pad
-			padToSounds : getDefaultPadToSounds(),
+			padToSounds : getDefaultPadToSounds().slice(),
 			// JSON which contains the soundId,url to play the sound
 			soundEffects : getDefaultSoundEffects()
 		};
@@ -37,13 +37,10 @@ class App extends React.Component {
 		else 
 			res = true;
 		this.setState({
-			power : res
+			power : res,
+			display : "",
+			padToSounds : getDefaultPadToSounds().slice()
 		});
-		if(!this.state.power) {
-			this.setState({
-				display : ""
-			});
-		}
 	}
 	
 	updateDisplay(d) {
