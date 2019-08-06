@@ -107,6 +107,14 @@ class App extends React.Component {
 					padToSounds={this.state.padToSounds}
 					updateDisplay={this.updateDisplay}
 				/>
+				<a 
+					className="author"
+					href="https://github.com/JohnDelta"
+					rel="noopener noreferrer"
+					target="_blank" 
+					title="visit my site!">
+					By John Delta
+				</a>
 			</div>
 		);
 	}	

@@ -45,6 +45,7 @@ class Options extends React.Component {
 	render() {
 		/*Create the power off style*/
 		let powerStyle = {};
+		let powerTitleText = {};
 		let powerSliderClass = "volume-slider ";
 		let disabled = "";
 		if(!this.props.power) {
@@ -55,6 +56,7 @@ class Options extends React.Component {
 			};
 			disabled="disabled";
 			powerSliderClass += "volume-slider-off";
+			powerTitleText = {color : "#7a2100"};
 		}
 		
 		return(
@@ -67,6 +69,15 @@ class Options extends React.Component {
 						className="fa fa-power-off font-button"
 						title="turn on/off button"
 					/>
+				</div>
+				
+				<div className="title">
+					<p 
+						style={powerTitleText}
+						id="title"
+					>
+						Drum Machine
+					</p>
 				</div>
 				
 				<div 

@@ -8,7 +8,15 @@ body {
   width : 100vw;
   height : 100vh;
   background-color : #000000;
-  display : flex;
-  justify-content : center;
-  align-items : center;
+  margin : auto;
+  overflow-x : hidden;
+}
+
+@media only screen and (min-width : 768px) {
+	body {
+		min-height : 500px;
+		display : flex;
+		justify-content : center;
+		align-items : center;
+	}
 }
