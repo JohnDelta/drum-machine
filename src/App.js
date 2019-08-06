@@ -38,8 +38,9 @@ class App extends React.Component {
 			res = true;
 		this.setState({
 			power : res,
-			display : "",
-			padToSounds : getDefaultPadToSounds().slice()
+			display : "Welcome!",
+			padToSounds : getDefaultPadToSounds().slice(),
+			edit : false
 		});
 	}
 	

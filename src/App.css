@@ -263,8 +263,22 @@
 
 .pad-to-sound i {
 	cursor : pointer;
+	-webkit-transition-duration : .3s;
+	-moz-transition-duration : .3s;
+	-o-transition-duration : .3s;
+	transition-duration : .3s;
 }
 
-
+.pad-to-sound i:active {
+	-webkit-transition-duration : .3s;
+	-moz-transition-duration : .3s;
+	-o-transition-duration : .3s;
+	transition-duration : .3s;
+	
+	-webkit-transform : scale(0.9);
+	-moz-transform : scale(0.9);
+	-o-transform : scale(0.9);
+	transform : scale(0.9);
+}
 
 
